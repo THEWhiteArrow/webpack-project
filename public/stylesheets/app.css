@@ -1,0 +1,545 @@
+/* :root{
+--bone:#ebd7c4;
+--bone-trasparent:#f7ece2ad;
+--sweet-brown: #9D3C31ff;
+--slate-gray: #647994ff;
+--grullo: #A69F96ff;
+--pine-tree: #222C00ff;
+--pine-tree-light: rgb(84, 92, 55);
+} */
+
+@font-face {
+   font-family: 'Tinos';
+   src: url('../fonts/Tinos-Regular.ttf');
+}
+ *{
+    box-sizing: border-box;
+ }
+html{
+   scroll-behavior: auto;
+   scroll-behavior: smooth;
+   min-height: 100vh;
+   height: 100%;
+
+}
+
+body{
+   color:#222C00ff;
+   position: relative;
+   height: 100vh;
+   font-family: 'Tinos', serif;
+   /* overflow: hidden; */
+
+}
+
+svg{
+   height:auto;
+}
+
+footer{
+   width:100%;
+   bottom:0;
+   background-color: #75685c;
+   color:white;
+}
+
+/* iframe{
+   width:100%;
+   height:300px;
+} */
+
+textarea{
+   height:100px;
+}
+
+/* section,footer{
+   content-visibility: auto ;
+   contain-intrinsic-size: 1000px; 
+} */
+
+/* .scroll-snap-container{
+   overflow-y: scroll;
+   scroll-behavior: smooth;
+   height: 100vh;
+   width: 100%;
+
+   scroll-snap-type: y proximity;
+}
+
+.scroll-snap-container header,
+.scroll-snap-container main section:not(#content)
+{
+
+   scroll-snap-align: start;
+    
+} */
+
+.member,
+.not-scroll{
+   content-visibility: auto ;
+}
+
+.contact-content{
+   padding-top: 64px;
+}
+
+
+/* .sticky-contact{
+   padding-top:64px;
+}
+ 
+.sticky-container{
+   position: relative;
+   min-height:150vh ;
+   z-index: 0;
+} */
+
+#cursor{
+   pointer-events: none;
+   position: fixed;
+   /* position: relative; */
+   width:45px;
+   height: 45px;
+   z-index: 1000;
+   top:var(--mtop);
+   left:var(--mleft);
+   /* background-color: var(--bone); */
+   border: 4px solid var(--sweet-brown);
+   /* will-change: transform; */
+   /* transition: transform 0.15s ease-in-out !important; */
+   /* transition-duration: 100ms;
+   transition-timing-function: ease-out; */
+   transform:translate3d(0,0,0) ;
+
+   animation: cursorRotate 10s linear infinite;
+}
+
+#cursor.mouse-down{
+   /* width:20px;
+   height:20px; */
+   animation-play-state: paused;
+   /* transform: scale(0.8) !important; */
+   /* transform: scale(0.8) !important; */
+}
+
+#title{
+   transform: translateY(-35%);
+   background-color: var(--bone-trasparent);
+   border: 2px solid var(--sweet-brown);
+   border-radius: 8px;
+   backdrop-filter: blur(3px);
+}
+
+#showMore{
+   -webkit-box-shadow: 0px 0px 10px 2px rgba(110, 109, 109, 0.048);
+   box-shadow: 0px 0px 10px 2px rgba(110, 109, 109, 0.048);
+   border-radius: 50%;
+   border:1px solid var(--sweet-brown);
+   width:70px;
+   height: 70px;
+   position: absolute;
+   bottom:10%;left:50%;
+
+   color: var(--sweet-brown);
+   background-color: var(--bone-trasparent);
+   backdrop-filter: blur(3px);
+
+   display: flex;
+   justify-content: center;
+   align-items: center;
+
+   animation:moveDown 6s ease-in-out 0.5s infinite both;
+}
+
+#showMore svg{
+   width:100%;
+   height: 65%;
+}
+#showMore svg:hover{
+   animation:rotateHover 1s ease-out;
+}
+
+#showMore:hover{
+   animation-play-state:paused;
+}
+
+#row1-img{
+   /* display: none; */
+   /* position: absolute; */
+   /* transform: translate(-50%,-50%); */
+   /* background-image: url("../assets/ortodentica/zesp_orto.jpg"); */
+   background-position: center;
+   background-size: contain;
+   border: 5px solid var(--sweet-brown);
+}
+
+#row3-img{
+   /* top:50%;left:50%;
+   transform:translate(-50%,-50%); */
+   /* position: absolute; */
+
+   /* background-image: url("../assets/ortodentica/img_3724_dxo.jpg"); */
+   background-position: center;
+   background-size: cover;
+   border: 5px solid var(--sweet-brown);
+}
+
+#row1-img,#row3-img{
+   /* background-repeat: no-repeat; */
+   /* display: flex; */
+   max-width:400px;
+   width:80%;
+   /* padding-bottom: 100%; */
+   /* height:auto; */
+
+}
+
+#row2-img{
+   background-image: url("../assets/ortodentica/img_3728_dxo.jpg");
+   background-position: center;
+   background-size: cover;
+   border: 5px solid var(--sweet-brown);
+   flex:1;
+   width:80%;
+   margin-right:auto;
+   margin-left:auto;
+}
+
+
+
+
+
+#team{
+   margin-bottom: 35px !important;
+
+}
+
+#members{
+   padding:2rem;
+   height:110px;
+
+   margin:0 auto;
+   overflow-y: hidden;
+   overflow-x: scroll;
+   background-color:rgba(206, 171, 139, 0.58);
+   -webkit-box-shadow: inset 0px 0px 8px 1px rgba(0,0,0,0.4); 
+   box-shadow: inset 0px 0px 8px 1px rgba(0,0,0,0.4);
+} 
+
+#members .scroll-content{
+   display: flex;
+   flex-wrap: nowrap;
+   height:100%;
+   margin-bottom: 15px;
+}
+
+.member{
+   position: relative;
+   /* width:95%;
+   padding-bottom: 95%; */
+   height: 100%;
+   width:76.52px;
+   /* width: 100px; */
+   margin:5px;
+   
+   background-size: cover;
+   background-position: center;
+   border-radius: 3px;
+   
+   -webkit-box-shadow:  0px 0px 5px 1px rgba(0,0,0,0.51); 
+   box-shadow:  0px 0px 5px 1px rgba(0,0,0,0.51);
+   
+   cursor: pointer;
+   transition: all 0.15s ease-in-out;
+}
+
+ 
+#shownMemberPic{
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-position: center;
+   display: flex;
+
+   width: min(100%,500px);
+   padding-bottom: min(100%,500px);
+   /* padding-bottom: 90%; */
+   /* max-width: 500px; */
+   justify-self: center;
+   align-self: center;
+   /* flex-grow: 1; */
+
+   transition: all 0.20s ease-in-out;
+}
+
+#shownMemberInfo,#shownMemberName{
+   line-height: 1.1em;
+   width: min(100%,500px);
+   /* width: 90%;  */
+   justify-self: center;
+   align-self: center; 
+}
+
+#carousel{
+   padding-top: 40px !important;
+   padding-bottom: 74px !important;
+}
+
+.carousel-inner{
+   border:5px solid var(--sweet-brown)
+}
+
+
+
+#carouselImages,.carousel-item,.arousel-inner{
+   max-height: 700px;
+}
+
+/* #navbarNavAltMarkup{
+   transition: height .35s ease !important;
+}
+#navbar{
+   transition: transform none;
+} */
+
+#welcome-img{
+   position: relative;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height:clamp(400px,100vh,700px);
+   /* transform: translateY(-150px); */
+   background-size: cover;
+   background-position: center;
+   background-image: linear-gradient(rgba(255, 255, 255, 0.39), rgba(255, 255, 255, 0)),url("../assets/ortodentica/img_3731_dxo.jpg");
+}
+
+.paragraph{
+   font-size:1rem;
+} 
+
+.order-1{
+   order: 1;
+}
+.order-2{
+   order: 2;
+}
+
+.content-box{
+   box-sizing: content-box;
+}
+
+.justify-top{
+   justify-content: flex-start !important;
+}
+
+.absolute{
+   position: absolute !important;
+}
+
+.relative{
+   position: relative !important;
+}
+
+.h-200{
+   height: 200px;
+}
+
+/* .min-h-300{
+   min-height: 300px;
+} */
+
+.text-sweet-brown{
+   color:var(--sweet-brown) !important;
+}
+
+
+.center-everything{
+   display:flex;
+   justify-content: center;
+   align-items: center;
+   text-align: center;
+   flex-direction: column;
+}
+
+.bi-file-earmark-arrow-down{
+   margin:0.32rem 0 0 0.5rem;
+   width:15px;
+}
+
+
+.nav-gradient{
+   will-change: height, background-color, backdrop-filter, border-bottom;
+   width:100%;
+   z-index: 100;
+   align-items: flex-start;
+   /* min-height: 150px; */
+
+
+   background-color: rgba(255, 255, 255, 0.7);
+   /* border-bottom: 2px solid transparent; */
+   background: -moz-linear-gradient(180deg, rgba(255,255,255,1) 10%, rgba(255,255,255,0) 100%);
+   background: -webkit-linear-gradient(180deg, rgba(255,255,255,1) 10%, rgba(255,255,255,0) 100%);
+   background: linear-gradient(180deg, rgba(255,255,255,1) 10%, rgba(255,255,255,0) 100%);
+   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="wheatfff",endColorstr="#ffffff",GradientType=1);
+
+   transition: background-color .4s ease-in-out, border-bottom .4s ease-in-out, border-bottom-color 0s linear;
+}
+
+.nav-link{
+   color:#222C00ff !important;
+}
+
+
+.nav-link.active{
+   color:#292d31 !important;
+}
+
+.solid-nav{
+   /* -webkit-box-shadow: 0px 5px 25px 3px rgba(0,0,0,0.21); 
+   box-shadow: 0px 5px 25px 3px rgba(0,0,0,0.21); */
+   /* border-bottom: 1px solid rgba(255, 255, 255, 0.65); */
+   /* min-height: 57px; */
+   /* background: -moz-linear-gradient(180deg, rgba(255,255,255,1) 0%, rgb(255, 255, 255) 100%);
+   background: -webkit-linear-gradient(180deg, rgba(255,255,255,1) 0%, rgb(255, 255, 255) 100%);
+   background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgb(255, 255, 255) 100%); */
+   /* backdrop-filter: blur(5px);
+   background-color:rgba(255, 255, 255, 0.6); */
+
+   background-color:rgb(255, 255, 255);
+   border-bottom: 1px solid var(--sweet-brown);
+}
+
+.row1,.row3{
+   min-height: 500px !important;
+}
+
+.row2{
+   min-height: 570px;
+}
+
+/* .transform-top{
+   top:0;
+   transform: translate();
+} */
+
+.bg-bone{
+   background-color: var(--bone);
+}
+
+.border-box{
+   box-sizing: border-box !important;
+}
+
+
+
+
+.whiten{
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   background-color: transparent;
+
+   transition: background-color 0.3s ease-in-out;
+}
+
+.bi-search{
+   widows: 35px;
+   height:35px;
+   opacity: 0;
+   color:#212529;
+   position: absolute;
+
+   top:50%;left:50%;
+      transform: translate3d(-40%,-40%,0);
+      transform-origin: center;
+
+   transition: all 0.20s ease-in-out;
+}
+
+.member:hover .whiten{
+   background-color: rgba(255, 255, 255, 0.5);
+}
+
+.member:hover .bi-search{
+   opacity: 1;
+   transform: translate3d(-40%,-40%,0) scale(1.5);
+}
+
+
+.member:nth-of-type(1){
+   background-image: url('../assets/team/1-min.jpg');
+}
+.member:nth-of-type(2){
+   background-image: url('../assets/team/2-min.jpg');
+}
+.member:nth-of-type(3){
+   background-image: url('../assets/team/3-min.jpg');
+}
+.member:nth-of-type(4){
+   background-image: url('../assets/team/4-min.jpg');
+}
+.member:nth-of-type(5){
+   background-image: url('../assets/team/5-min.jpg');
+}
+.member:nth-of-type(6){
+   background-image: url('../assets/team/6-min.jpg');
+}
+.member:nth-of-type(7){
+   background-image: url('../assets/team/7-min.jpg');
+}
+.member:nth-of-type(8){
+   background-image: url('../assets/team/8-min.jpg');
+}
+.member:nth-of-type(9){
+   background-image: url('../assets/team/9-min.jpg');
+}
+.member:nth-of-type(10){
+   background-image: url('../assets/team/10-min.jpg');
+}
+.member:nth-of-type(11){
+   background-image: url('../assets/team/11-min.jpg');
+}
+.member:nth-of-type(12){
+   background-image: url('../assets/team/12-min.jpg');
+}
+.member:nth-of-type(13){
+   background-image: url('../assets/team/13-min.jpg');
+}
+
+/* ANIMATIONS KEYFRAMES */
+@keyframes moveDown{
+   0%{transform: translate(-50%,0vh);}
+   30%{transform: translate(-50%,5vh);}
+   50%{transform: translate(-50%,0vh);}
+   70%{transform: translate(-50%,3vh);}
+   90%{transform: translate(-50%,0vh);}
+   100%{transform: translate(-50%,0vh);}
+}
+
+@keyframes rotateHover{
+   0%{transform: rotate(0deg)}
+   20%{transform: rotate(20deg)}
+   40%{transform: rotate(-10deg)}
+   60%{transform: rotate(5deg)}
+   80%{transform: rotate(-2.5deg)}
+   100%{transform: rotate(0deg)}
+}
+
+@keyframes cursorRotate{
+   0%{
+      transform:scale(1) rotate(0deg);
+   }
+   25%{
+      transform:scale(0.7) rotate(90deg);
+   }
+   50%{
+      transform:scale(1) rotate(180deg);
+   }
+   75%{
+      transform:scale(0.7) rotate(270deg);
+   }
+   100%{
+      transform:scale(1) rotate(359deg);
+   }
+}
+
